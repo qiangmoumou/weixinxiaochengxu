@@ -1,0 +1,82 @@
+<view class="main">  
+
+  <!-- 公共头部 -->
+  <MyTitle></MyTitle>
+
+  <!-- 视频详情 -->
+  <view class="video_info">
+    <!-- 视频标签 -->
+    <video src="{{ videoInfo.videoSrc }}" controls></video>
+    <!-- 视频标题 -->
+    <view class="video_title">
+      <text>{{ videoInfo.videoTitle }}</text>
+      <image src="../../icon/move.png" style="width: 30rpx;height:30rpx;"></image>
+    </view>
+    <!-- 视频详情... -->
+    <view class="video_detail">
+      <!-- 作者 -->
+      <text class="author">作者:{{ videoInfo.author }}</text>
+      <!-- 播放量 -->
+      <text class="play_count">播放量:{{ videoInfo.playCount }}</text>
+      <!-- 评论量 -->
+      <text class="comment_count">评论量:{{ videoInfo.commentCount }}</text>
+      <!-- 时间 -->
+      <text class="date">时间:{{ videoInfo.date }}</text>
+    </view>
+
+    <!-- 推荐视频 -->
+    <view class="other_list">
+      <navigator class="item_other" wx:for="{{ otherList }}" wx:key="{{ index }}">
+        <!-- 图片 -->
+        <view class="other_img_wrap">
+          <image src="{{ item.imgSrc }}" mode="widthFix"></image>
+        </view>
+        <!-- 视频详情 -->
+        <view class="other_info">
+          <!-- 标题 -->
+          <view class="other_title">{{ item.videoTitle }}</view>
+          <!-- 播放数据 -->
+          <view class="other_detail">
+            <!-- 播放量 -->
+            <text class="play_count">{{ item.playCount }}次观看</text>
+            <!-- 评价 -->
+            <text class="comment_count">{{ item.commentCount }}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 评论列表 -->
+  <view class="comment_wrap">
+    <view class="comment_title">
+      评论（45678）
+    </view>
+    <view class="comment_list">
+      <view class="comment_item" wx:for="{{ commentData }}" wx:key="{{ index }}">
+        <!-- 左侧 -->
+        <view class="comment_user">
+          <image src="{{ item.userIconSrc }}" mode="widthFix"></image>
+        </view>
+        <!-- 右侧 -->
+        <view class="comment_info">
+          <view class="comment_detail">
+            <text class="author">{{ item.username }}</text>
+            <text class="date">{{ item.commentdate }}</text>
+          </view>
+          <view class="comment_content">
+            {{ item.commentInfo }}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+
+</view>
